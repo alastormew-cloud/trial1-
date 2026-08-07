@@ -23,7 +23,7 @@
 
 		/* Header / Landing */
 		.hero-landing{min-height:78vh;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:48px 16px;background:linear-gradient(180deg,var(--ivory),var(--cream))}
-		.monogram{width:120px;height:120px;border-radius:999px;border:4px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display';font-size:34px;color:var(--brown);background:linear-gradient(180deg,rgba(255,255,255,0.6),rgba(255,255,255,0.2))}
+		.monogram{width:120px;height:120px;border-radius:999px;border:4px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto;font-family:'Playfair Display';font-size:34px;line-height:120px;padding:0;color:var(--brown);background:linear-gradient(180deg,rgba(255,255,255,0.6),rgba(255,255,255,0.2));transform:translateY(-4px)}
 		.meta{letter-spacing:3px;color:var(--muted);font-size:12px;margin-top:16px}
 		.names{font-family:'Playfair Display',serif;font-size:44px;color:var(--brown);margin:8px 0}
 		.subtitle{color:var(--muted);max-width:700px;margin:8px auto 20px}
@@ -68,6 +68,11 @@
 		input[type=text],select,textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;font-size:14px}
 		textarea{min-height:120px}
 		.submit-btn{background:var(--brown);color:var(--ivory);padding:12px 16px;border-radius:8px;border:none;cursor:pointer;margin-top:12px}
+
+		/* Counter (people) */
+		.counter{display:inline-flex;align-items:center;gap:8px}
+		.counter button{width:36px;height:36px;border-radius:6px;border:1px solid #ddd;background:#fff;font-size:20px;line-height:1;cursor:pointer}
+		.counter input[type=number]{width:64px;text-align:center;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:14px}
 
 		/* Footer */
 		footer{padding:28px 16px;text-align:center;color:var(--muted)}
@@ -162,6 +167,12 @@
 								<option>Vegetarian</option>
 								<option>Halal</option>
 							</select>
+								<label for="Pax">Number of Pax?</label>
+								<div class="counter" role="group" aria-label="Number of Pax">
+									<button type="button" class="decrease" aria-label="Decrease">−</button>
+									<input type="number" id="Pax" name="Pax" value="1" min="1" max="10" />
+									<button type="button" class="increase" aria-label="Increase">+</button>
+								</div>
 
 							<label for="message">Leave a little note...</label>
 							<textarea id="message" name="message" placeholder="Write your wishes here..."></textarea>
@@ -249,6 +260,29 @@
 			alert('Thank you, ' + (data.name||'Guest') + '! Your response has been recorded.');
 			form.reset();
 		});
+
+		// People counter (+ / -) logic
+		(function(){
+			const dec = document.querySelector('.counter .decrease');
+			const inc = document.querySelector('.counter .increase');
+			const input = document.getElementById('Pax');
+			if(!input) return;
+			const min = parseInt(input.min || '1', 10);
+			const max = parseInt(input.max || '10', 10);
+			dec.addEventListener('click', ()=>{
+				let v = parseInt(input.value || '1', 10);
+				if(v > min) input.value = v - 1;
+			});
+			inc.addEventListener('click', ()=>{
+				let v = parseInt(input.value || '1', 10);
+				if(v < max) input.value = v + 1;
+			});
+			input.addEventListener('input', ()=>{
+				let v = parseInt(input.value || String(min), 10);
+				if(isNaN(v) || v < min) input.value = min;
+				else if(v > max) input.value = max;
+			});
+		})();
 	</script>
 </body>
 </html>
