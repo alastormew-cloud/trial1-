@@ -201,65 +201,47 @@
 
 	<audio id="bgMusic" src="" preload="none"></audio>
 
-	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<script>
-		AOS.init({duration:700,once:true});
+		AOS.init({duration:700, once:true});
 
 		// Smooth scroll + music play
 		const openBtn = document.getElementById('openInvitation');
 		const mainSection = document.getElementById('main');
 		const bgMusic = document.getElementById('bgMusic');
-		// If you have a music file, set src attribute or leave empty to skip play
-		// bgMusic.src = 'assets/music/background.mp3';
 
 		openBtn.addEventListener('click', ()=>{
 			mainSection.scrollIntoView({behavior:'smooth'});
-			if(bgMusic.src){
-				bgMusic.play().catch(()=>{/*playback blocked until user gesture*/});
+			if(bgMusic && bgMusic.src){
+				bgMusic.play().catch(()=>{/* playback blocked until user gesture */});
 			}
 		});
 
-		// Countdown
-		// Set target date/time (local). Example: 2027-09-18 17:00 local time
-		const target = new Date(2027,8,18,17,0,0);
+		// Countdown Timer
+		const target = new Date(2027, 8, 18, 17, 0, 0); // 18 Sep 2027
 		function updateCountdown(){
 			const now = new Date();
 			const diff = target - now;
-			if(diff<=0){
-				document.getElementById('days').textContent='0';
-				document.getElementById('hours').textContent='0';
-				document.getElementById('minutes').textContent='0';
-				document.getElementById('seconds').textContent='0';
+			if(diff <= 0){
+				document.getElementById('days').textContent = '0';
+				document.getElementById('hours').textContent = '0';
+				document.getElementById('minutes').textContent = '0';
+				document.getElementById('seconds').textContent = '0';
 				clearInterval(timerId);
 				return;
 			}
-			const secs = Math.floor(diff/1000);
-			const days = Math.floor(secs/86400);
-			const hours = Math.floor((secs%86400)/3600);
-			const minutes = Math.floor((secs%3600)/60);
-			const seconds = secs%60;
-			document.getElementById('days').textContent=days;
-			document.getElementById('hours').textContent=String(hours).padStart(2,'0');
-			document.getElementById('minutes').textContent=String(minutes).padStart(2,'0');
-			document.getElementById('seconds').textContent=String(seconds).padStart(2,'0');
+			const secs = Math.floor(diff / 1000);
+			const days = Math.floor(secs / 86400);
+			const hours = Math.floor((secs % 86400) / 3600);
+			const minutes = Math.floor((secs % 3600) / 60);
+			const seconds = secs % 60;
+			document.getElementById('days').textContent = days;
+			document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+			document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+			document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
 		}
-		const timerId = setInterval(updateCountdown,1000);
+		const timerId = setInterval(updateCountdown, 1000);
 		updateCountdown();
-
-		// RSVP form handling (local only)
-		const form = document.getElementById('rsvpForm');
-		form.addEventListener('submit', (e)=>{
-			e.preventDefault();
-			const data = {
-				name:form.name.value.trim(),
-				attendance:form.attendance.value,
-				food:form.food.value,
-				message:form.message.value.trim()
-			};
-			// For demo, show a thank you and reset
-			alert('Thank you, ' + (data.name||'Guest') + '! Your response has been recorded.');
-			form.reset();
-		});
 
 		// People counter (+ / -) logic
 		(function(){
@@ -283,6 +265,59 @@
 				else if(v > max) input.value = max;
 			});
 		})();
+
+		// ==========================================
+		// PENGIRIMAN FORM RSVP KE GOOGLE SHEETS
+		// ==========================================
+		
+		const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby0WOWDRl65ZrTMQJ3E51gCK8pA77CGHhDfKm6mHN5oCUcxrYefluxIyiYZUpuGgWCO7w/exec';
+
+		const form = document.getElementById('rsvpForm');
+		const submitBtn = form.querySelector('.submit-btn');
+
+		form.addEventListener('submit', (e) => {
+			e.preventDefault();
+
+			// Pengecekan disesuaikan agar tidak memblokir URL Anda
+			if (SCRIPT_URL === 'PASTE_WEB_APP_URL_ANDA_DI_SINI' || !SCRIPT_URL) {
+				alert('Silakan masukkan SCRIPT_URL Apps Script Anda terlebih dahulu!');
+				return;
+			}
+
+			const formData = {
+				name: document.getElementById('name').value.trim(),
+				attendance: document.getElementById('attendance').value,
+				food: document.getElementById('food').value,
+				pax: document.getElementById('Pax').value,
+				message: document.getElementById('message').value.trim()
+			};
+
+			const originalBtnText = submitBtn.textContent;
+			submitBtn.textContent = 'Sending...';
+			submitBtn.disabled = true;
+
+			fetch(SCRIPT_URL, {
+				method: 'POST',
+				mode: 'no-cors',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(formData)
+			})
+			.then(() => {
+				alert('Terima kasih, ' + formData.name + '! Konfirmasi RSVP Anda berhasil disimpan.');
+				form.reset();
+				document.getElementById('Pax').value = '1';
+			})
+			.catch((error) => {
+				console.error('Error:', error);
+				alert('Maaf, terjadi kesalahan saat mengirim data. Silakan coba lagi.');
+			})
+			.finally(() => {
+				submitBtn.textContent = originalBtnText;
+				submitBtn.disabled = false;
+			});
+		});
 	</script>
 </body>
 </html>
