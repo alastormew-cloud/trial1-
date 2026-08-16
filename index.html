@@ -70,15 +70,15 @@
 
         /* CARA MEMPERBESAR LOGO ATAS ADALAH DENGAN MENGUBAH max-width DI BAWAH INI */
         .monogram-img {
-            max-width: 250px; /* Nilai diperbesar dari 150px ke 250px */
-            height: auto;
-            margin-bottom: 40px;
+            max-width: 2500000px; /* Nilai diperbesar dari 150px ke 250px */
+            height: 2000px;
+            margin-bottom: 45000px;
         }
 
         /* OVERLAY ISI HERO BOTTOM */
         .overlay-bottom {
             position: absolute;
-            top: 0;
+            top: 120px;
             left: 0;
             width: 100%;
             height: 100%;
@@ -91,10 +91,10 @@
         /* ORNAMEN BUNGA KIRI */
         .flower-ornament {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 35%;
-            max-width: 300px;
+            top: 0px;
+            right: 0px;
+            width: 100%;
+            max-width: 3000px;
             height: auto;
             pointer-events: none;
         }
@@ -102,12 +102,20 @@
         /* ORNAMEN AMPLOP SURAT SEGEL MERAH */
         .envelope-ornament {
             position: absolute;
-            bottom: 20px;
-            left: 20px;
+            bottom: 500px;
+            left: 140px;
             width: 25%;
-            max-width: 220px;
-            height: auto;
+            max-width: 1020px;
+            height:auto;
             pointer-events: none;
+        } 
+    
+        /* POSISI LOGO DIBUAT NAIK KE ATAS MENGGUNAKAN MARGIN-TOP NEGATIF */
+        .monogram-img {
+            max-width: 2500px;
+            height: auto;
+            margin-top: -900px; /* <--- Ubah angka minus ini (misal -70px) jika ingin semakin naik */
+            margin-bottom: 20px;
         }
 
         .events-section {
@@ -143,11 +151,11 @@
 
         .see-location-btn {
             display: inline-block;
-            margin-top: 8px;
+            margin-top: 20px;
             background: #4a3b2c;
             color: #fff !important;
             padding: 8px 24px;
-            border-radius: 20px;
+            border-radius: 200px;
             font-size: 14px;
             font-weight: 600;
             letter-spacing: 0.5px;
@@ -226,14 +234,14 @@
             <img src="img/Gambar Latar Belakang Dasar (Tangga & Pilar Tanpa Hiasan).BAAWAH.png" alt="Invitation Background" class="bg-template" />
             
             <!-- ORNAMEN BUNGA KIRI (ANIMASI FADE-RIGHT) -->
-            <img src="img/Screenshot 2026-08-15 221859.jpg" alt="Flower Ornament" class="flower-ornament" data-aos="fade-right" data-aos-delay="200" />
+            <img src="img/Gambar_Ornamen_Atas__Drapery_Kain_Tirai_Putih___Lampu_Chandelier_._-_Copy-removebg-preview (1).png" alt="Flower Ornament" class="flower-ornament" data-aos="fade-right" data-aos-delay="200" />
             
             <!-- ORNAMEN AMPLOP SURAT SEGEL MERAH (ANIMASI FADE-UP-RIGHT) -->
             <img src="img/Gambar_Ornamen_Amplop_Surat_dengan_Segel_Merah_di_Kiri_Bawah.-removebg-preview.png" alt="Envelope Ornament" class="envelope-ornament" data-aos="fade-up-right" data-aos-delay="400" />
 
             <div class="overlay-bottom">
                 <div class="events-section" data-aos="fade-up">
-                    <!-- HOLY MATRIMONY -->
+                    <!-- HOLY MATRIMONY --> 
                     <div class="event-box">
                         <div class="event-title">HOLY MATRIMONY</div>
                         <div class="event-details">Sabtu, 18.09.2027</div>
