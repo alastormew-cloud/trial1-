@@ -34,7 +34,7 @@
         /* 2. HERO BOTTOM SECTION */
         .hero-bottom-section {
             position: relative;
-            width: 100%;
+            width: 110%;
             max-width: 1000px;
             margin: 0 auto;
             overflow: hidden;
@@ -62,7 +62,7 @@
 
         /* ORNAMEN LAMPUN CHANDELIER (ATAS) */
         .chandelier-img {
-            width: 100%;
+            width: 110%;
             max-width: 800px;
             height: auto;
             top: 0;
@@ -70,16 +70,16 @@
 
         /* CARA MEMPERBESAR LOGO ATAS ADALAH DENGAN MENGUBAH max-width DI BAWAH INI */
         .monogram-img {
-            max-width: 2500000px; /* Nilai diperbesar dari 150px ke 250px */
-            height: 2000px;
-            margin-bottom: 45000px;
+            max-width: 150px; /* Nilai diperbesar dari 150px ke 250px */
+            height: 150px;
+            margin-bottom: 150px;
         }
 
         /* OVERLAY ISI HERO BOTTOM */
         .overlay-bottom {
             position: absolute;
-            top: 120px;
-            left: 0;
+            top: 125px;
+            left: 3px;
             width: 100%;
             height: 100%;
             display: flex;
@@ -91,10 +91,10 @@
         /* ORNAMEN BUNGA KIRI */
         .flower-ornament {
             position: absolute;
-            top: 0px;
-            right: 0px;
+            top: 10000px;
+            left: 20px;
             width: 100%;
-            max-width: 3000px;
+            max-width: 300000px;
             height: auto;
             pointer-events: none;
         }
@@ -114,7 +114,7 @@
         .monogram-img {
             max-width: 2500px;
             height: auto;
-            margin-top: -900px; /* <--- Ubah angka minus ini (misal -70px) jika ingin semakin naik */
+            margin-top: -990px; /* <--- Ubah angka minus ini (misal -70px) jika ingin semakin naik */
             margin-bottom: 20px;
         }
 
@@ -129,7 +129,7 @@
         .event-box {
             text-align: center;
             margin-bottom: 25px;
-            width: 280px;
+            width: 200px;
         }
 
         .event-title {
@@ -205,13 +205,13 @@
         /* Responsive Penyesuaian Mobile */
         @media (max-width: 600px) {
             .monogram-img { max-width: 160px; margin-bottom: 20px; }
-            .event-box { width: 200px; }
+            .event-box { width: 500px; }
             .event-title { font-size: 18px; }
             .event-details { font-size: 12px; }
-            .see-location-btn { padding: 6px 16px; font-size: 12px; }
+            .see-location-btn { padding: 8px 20px; font-size: 14px; }
             .rsvp-grid{grid-template-columns:1fr}
-            .envelope-ornament { width: 35%; bottom: 10px; left: 10px; }
-            .flower-ornament { width: 45%; }
+            .envelope-ornament { width: 65%; top: 40px; left: 60px; }
+            .flower-ornament { width: 110%; top:-340px; left: 5px; }
         }
     </style>
 </head>
@@ -234,7 +234,7 @@
             <img src="img/Gambar Latar Belakang Dasar (Tangga & Pilar Tanpa Hiasan).BAAWAH.png" alt="Invitation Background" class="bg-template" />
             
             <!-- ORNAMEN BUNGA KIRI (ANIMASI FADE-RIGHT) -->
-            <img src="img/Gambar_Ornamen_Atas__Drapery_Kain_Tirai_Putih___Lampu_Chandelier_._-_Copy-removebg-preview (1).png" alt="Flower Ornament" class="flower-ornament" data-aos="fade-right" data-aos-delay="200" />
+            <img src="img/Copy_of_Your_paragraph_text-removebg-preview.png" alt="Flower Ornament" class="flower-ornament" data-aos="fade-right" data-aos-delay="200" />
             
             <!-- ORNAMEN AMPLOP SURAT SEGEL MERAH (ANIMASI FADE-UP-RIGHT) -->
             <img src="img/Gambar_Ornamen_Amplop_Surat_dengan_Segel_Merah_di_Kiri_Bawah.-removebg-preview.png" alt="Envelope Ornament" class="envelope-ornament" data-aos="fade-up-right" data-aos-delay="400" />
