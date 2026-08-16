@@ -35,7 +35,7 @@
         .hero-bottom-section {
             position: relative;
             width: 100%;
-            max-width: 20px;
+            max-width: 1000px;
             margin: 0 auto;
             overflow: hidden;
         }
@@ -80,7 +80,7 @@
             position: absolute;
             top: 120px;
             left: 0;
-            width: 10%;
+            width: 100%;
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -91,8 +91,8 @@
         /* ORNAMEN BUNGA KIRI */
         .flower-ornament {
             position: absolute;
-            top: 10px;
-            right: 100px;
+            top: 0px;
+            right: 0px;
             width: 100%;
             max-width: 3000px;
             height: auto;
