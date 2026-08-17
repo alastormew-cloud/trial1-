@@ -78,8 +78,8 @@
         /* OVERLAY ISI HERO BOTTOM */
         .overlay-bottom {
             position: absolute;
-            top: 125px;
-            left: 3px;
+            top: 80px;
+            left: 2px;
             width: 100%;
             height: 100%;
             display: flex;
@@ -135,7 +135,7 @@
         .event-title {
             font-family: 'Playfair Display', serif;
             font-size: 22px;
-            font-weight: 700;
+            font-weight:700;
             color: #382d24;
             margin: 0 0 4px 0;
             letter-spacing: 1px;
@@ -208,10 +208,10 @@
             .event-box { width: 500px; }
             .event-title { font-size: 18px; }
             .event-details { font-size: 12px; }
-            .see-location-btn { padding: 8px 20px; font-size: 14px; }
+            .see-location-btn { padding: 8px 24x; font-size: 14px; }
             .rsvp-grid{grid-template-columns:1fr}
-            .envelope-ornament { width: 65%; top: 40px; left: 60px; }
-            .flower-ornament { width: 110%; top:-340px; left: 5px; }
+            .envelope-ornament { width: 65%; top: 1px; left: 70px; }
+            .flower-ornament { width: 110%; top:-340px; left: 0px; }
         }
     </style>
 </head>
