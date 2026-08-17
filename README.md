@@ -34,7 +34,7 @@
         /* 2. HERO BOTTOM SECTION */
         .hero-bottom-section {
             position: relative;
-            width: 110%;
+            width: 100%;
             max-width: 1000px;
             margin: 0 auto;
             overflow: hidden;
